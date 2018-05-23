@@ -1,0 +1,141 @@
+/*时间戳转换日期格式*/
+function pattern(date, fmt) {
+  var o = [
+    {
+      k: 'M+',
+      v: date.getMonth() + 1 //月份
+    }, {
+      k: 'd+',
+      v: date.getDate()//日
+    }, {
+      k: 'h+',
+      v: date.getHours() % 12 == 0 ? 12 : date.getHours() % 12 //小时
+    }, {
+      k: 'H+',
+      v: date.getHours()//小时
+    }, {
+      k: 'm+',
+      v: date.getMinutes()//分
+    }, {
+      k: 's+',
+      v: date.getSeconds()//秒
+    }, {
+      k: 'q+',
+      v: Math.floor((date.getMonth() + 3) / 3)//季度
+    }, {
+      k: 'S',
+      v: date.getMilliseconds()//毫秒
+    }
+  ];
+  var week = {
+    '0': '/u65e5',
+    '1': '/u4e00',
+    '2': '/u4e8c',
+    '3': '/u4e09',
+    '4': '/u56db',
+    '5': '/u4e94',
+    '6': '/u516d'
+  };
+  if (getRegExp('(y+)').test(fmt)) {
+    var exec = getRegExp('(y+)').exec(fmt);
+    fmt = fmt.replace(exec[0], (date.getFullYear() + '').substring(4 - exec[0].length));
+  }
+  if (getRegExp('(E+)').test(fmt)) {
+    var exec = getRegExp('(E+)').exec(fmt);
+    fmt = fmt.replace(exec[0], ((exec[0].length > 1) ? (exec[0].length > 2 ? '/u661f/u671f' : '/u5468') : '') + week[date.getDay() + '']);
+  }
+  for (var i = 0; i < o.length; i++) {
+    if (getRegExp('(' + o[i].k + ')').test(fmt)) {
+      var exec = getRegExp('(' + o[i].k + ')').exec(fmt);
+      fmt = fmt.replace(exec[0], (exec[0].length == 1) ? (o[i].v) : (('00' + o[i].v).substring(('' + o[i].v).length)));
+    }
+  }
+  return fmt;
+}
+
+function timesToDate(tm, p) {
+  if (tm == "" || tm == null || tm == undefined) {
+    return '';
+  }
+  var date = getDate(parseInt(tm));
+  if (p) {
+    return pattern(date, p);
+  } else {
+    return pattern(date, 'yyyy-MM-dd HH:mm:ss');
+  }
+}
+
+
+function changeFileSize(limit) {
+  var size = "";
+  if (limit < 0.1 * 1024) { //如果小于0.1KB转化成B  
+    size = limit.toFixed(2) + "B";
+  } else if (limit < 0.1 * 1024 * 1024) {//如果小于0.1MB转化成KB  
+    size = (limit / 1024).toFixed(2) + "K";
+  } else if (limit < 0.1 * 1024 * 1024 * 1024) { //如果小于0.1GB转化成MB  
+    size = (limit / (1024 * 1024)).toFixed(2) + "M";
+  } else { //其他转化成GB  
+    size = (limit / (1024 * 1024 * 1024)).toFixed(2) + "G";
+  }
+
+  var sizestr = size + "";
+  var len = sizestr.indexOf("\.");
+  var dec = sizestr.substring(len + 1, len + 3);
+  if (dec == "00") {//当小数点后为00时 去掉小数部分  
+    return sizestr.substring(0, len) + sizestr.substring(len + 3, len + 5);
+  }
+  return sizestr;
+}
+
+
+
+
+
+function filterFilesName(str, ext, length) {
+  var len1 = 5, len2 = 1, len3 = 2;
+  if (length == 'long') {
+    len1 = 10, len2 = 3, len3 = 8;
+  }
+  var totalLen = ext.length + len1;
+  var lastLen = ext.length + len2;
+  if (str.length > totalLen) {
+    var temp = str.substring(0, len3) + '...' + str.substring(str.length - lastLen, str.length);
+    return temp;
+  } else {
+    return str;
+  }
+}
+
+function getTaskIsDelay(times, status) {
+  var result = "";
+  if (times) {
+    var now = getDate().getTime();
+    if (now > times && status != 'CANCEL' && status != 'FINISH' && status != 'FINISH_DELAY') {
+      result = "task_delay";
+    }
+  }
+  return result;
+}
+
+function cashFilter(status){
+  var result = '';
+  switch(status){
+    case 'WAITING_APPROVAL': result = '待审批'; break;
+    case 'WAITING_PAY': result = '待打款'; break;
+    case 'CASH_DONE': result = '提现完成'; break;
+    case 'APPROVAL_REJECT': result = '申请拒绝'; break;
+    case 'PAY_REJECT': result = '打款拒绝';break;
+  }
+
+  return result;
+}
+
+
+
+module.exports = {
+  timesToDate: timesToDate,
+  changeFileSize: changeFileSize,
+  filterFilesName: filterFilesName,
+  getTaskIsDelay: getTaskIsDelay,
+  cashFilter: cashFilter
+};

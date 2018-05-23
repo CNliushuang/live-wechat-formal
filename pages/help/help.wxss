@@ -1,0 +1,17 @@
+/* pages/help/help.wxss */
+
+.help{
+	font-size: 24rpx;
+	color: #9B9B9B;
+}
+
+.help .items{
+	margin-top: 36rpx;
+	padding: 0 22rpx;
+}
+
+.help .items .name{
+	float: left;
+	margin-right: 49rpx;
+}
+

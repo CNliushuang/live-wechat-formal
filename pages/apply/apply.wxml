@@ -1,0 +1,73 @@
+<!--pages/apply/apply.wxml-->
+<view class='apply'>
+<block wx:if="{{is_apply}}">
+  <view class='group'>
+    <view class='title'>姓名</view>
+    <view class='input_box'>
+      <input bindinput='changeInfo' data-type="identityName" type="text" placeholder="请输入你的真实姓名" auto-focus/>
+    </view>
+  </view>
+  <view class='group'>
+    <view class='title'>联系方式</view>
+    <view class='input_box'>
+      <input bindinput='changeInfo' data-type="qq" type="text" placeholder="请输入你的QQ号"/>
+    </view>
+    <view class='input_box'>
+      <input bindinput='changeInfo' data-type="wechat" type="text" placeholder="请输入你的微信号"/>
+    </view>
+  </view>
+  
+  <view class='group'>
+    <view class='title'>你是怎么了解到我们的？</view>
+    <view class='input_box'>
+      <input bindinput='changeInfo' data-type="summary" type="text" placeholder="请填写你了解到我们的方式"/>
+    </view>
+  </view>
+  <view class='group images'>
+    <view class='title'>请上传3张近照</view>
+    <view class='images_wrapper'>
+      <view class='view_box' data-num="1" bindtap='goUpload'>
+        <block wx:if="{{img_1 && img_1.url}}">
+          <image src="{{img_1.url}}" data-num="1"></image>
+        </block>
+        <block wx:else>
+          <view class='upload' data-num="1"><image data-num="1" src='../../images/add_file.png'></image></view>
+        </block>
+      </view>
+      <view class='view_box' data-num="2" bindtap='goUpload'>
+        <block wx:if="{{img_2 && img_2.url}}">
+          <image src="{{img_2.url}}" data-num="2"></image>
+        </block>
+        <block wx:else>
+          <view class='upload' data-num="2"><image data-num="2" src='../../images/add_file.png'></image></view>
+        </block>
+      </view>
+      <view class='view_box' data-num="3" bindtap='goUpload'>
+        <block wx:if="{{img_3 && img_3.url}}">
+          <image src="{{img_3.url}}" data-num="3"></image>
+        </block>
+        <block wx:else>
+          <view class='upload' data-num="3"><image data-num="3" src='../../images/add_file.png'></image></view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='group submit'>
+    <v-button bindtap='submitApply'>提交资料</v-button>
+  </view>
+  </block>
+  <block wx:else>
+    <view class='success'>
+      <view>
+        <icon type="success" size="80" color="#DB3069"/>
+      </view>
+      <view class='info'>
+        <text>申请主播资料已提交</text>
+      </view>
+      <view class='summary'>
+        <text>请耐心等待工作人员主动联系你</text>
+      </view>
+      
+    </view>
+  </block>
+</view>

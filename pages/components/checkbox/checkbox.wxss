@@ -1,0 +1,13 @@
+/* pages/components/checkbox/checkbox.wxss */
+.v-checkbox{
+  width: 33rpx;
+  height: 33rpx;
+  display: inline-block;
+}
+.v-checkbox image{
+  width: 100%;
+  height: 100%;
+}
+
+
+

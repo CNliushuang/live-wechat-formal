@@ -1,0 +1,61 @@
+<!--pages/login/login.wxml-->
+<view class='login_wrapper'>
+  <block wx:if="{{showLoginBox}}">
+     <view wx:if="{{userInfo}}" class='user'>
+      <view class='icon'>
+        <block wx:if="{{userInfo}}">
+          <image src="{{userInfo.avatarUrl}}"></image>
+        </block>
+      </view>
+      <view class='name'>
+        <block wx:if="{{userInfo}}">
+          {{userInfo.nickName}}
+        </block>
+      </view>
+    </view> 
+    <!--login from start-->
+    <view wx:if="{{isLogin}}" class='login_form'>
+      <view class='mobile items'>
+        <input bindinput='setLoginMobile' type='number' value='' placeholder="输入手机号" auto-focus/>
+      </view>
+      <view class='code items'>
+        <view bindtap='getCode' class='get_code {{login.codeLocked?"disabled":""}}'>
+          <block wx:if="{{login.codeLocked}}">
+            重新获取{{login.lockedTime}}
+          </block>
+          <block wx:else>获取验证码</block>
+        </view>
+        <view class='code_box'>
+          <input bindinput='setLoginCode' type='text' placeholder="输入验证码"/>
+        </view>
+      </view>
+      <view class='btn login'>
+        <v-button bindtap='goLogin'>登录</v-button> 
+        <button class='hiddenbtn' bindgetuserinfo='login' open-type='getUserInfo' bindtap='canILogin'>登录</button>
+      </view>
+    </view>
+    <!--login from end-->
+    <!--plat list start-->
+    <view wx:if="{{!isLogin}}" class='plat_list'>
+
+      <block wx:if="{{users && users.length > 0}}">
+        <view data-uuid="{{item.user.uuid}}" bindtap='selectUser' wx:for="{{users}}" wx:key="*this" class='items {{select_user_uuid == item.user.uuid?"active":""}}'>
+          {{item.user.platName}}（{{item.user.nickname}}）
+        </view>
+        <view bindtap='goMy' class='btn'>
+          <v-button>进入</v-button>
+        </view>
+      </block>
+      <block wx:else>
+        <view data-uuid="{{item.uuid}}" bindtap='selectPlat' wx:for="{{plats}}" wx:key="*this" class='items {{select_plat_uuid == item.uuid?"active":""}}'>
+          {{item.name}}
+        </view>
+        <view bindtap='goApply' class='btn'>
+          <v-button>申请成为主播</v-button>
+        </view>
+      </block>
+
+    </view>
+  </block>
+  <!--plat list end-->
+</view>

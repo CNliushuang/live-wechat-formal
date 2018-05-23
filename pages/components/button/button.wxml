@@ -1,0 +1,4 @@
+<!--pages/components/button/button.wxml-->
+<view class='v-button {{disabled?"disabled":""}} {{cycle?"v-cycle":""}}'>
+  <slot></slot>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/components/checkbox/checkbox.wxml-->
+<view class='v-checkbox'>
+  <block wx:if="{{checked}}">
+    <image src='../../../images/checkbox-active.png'></image>
+  </block>
+  <block wx:else>
+    <image src='../../../images/checkbox.png'></image>
+  </block>
+</view>

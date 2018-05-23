@@ -1,0 +1,106 @@
+/* pages/apply/apply.wxss */
+.apply{
+  height: 100%;
+  padding: 0 40rpx;
+}
+
+.apply .group{
+  margin-bottom: 57rpx;
+}
+
+.apply .group .title{
+  text-align: center;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+
+
+.apply .group .input_box{
+  width: 100%;
+  height: 97rpx;
+  line-height: 97rpx;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  border-radius: 100px;
+  margin-top: 18rpx;
+}
+
+.apply .group .input_box input{
+  width: 100%;
+  height: 97rpx;
+  line-height: 97rpx;
+  background: #FFFFFF;
+  border-radius: 100px;
+  padding-left: 63rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #9B9B9B;
+}
+.apply .group.images{
+  height: 140rpx;
+  position: relative;
+}
+
+.apply .group.images .images_wrapper{
+  position: absolute;
+  left: 50%;
+  top: 40rpx;
+  width: 400rpx;
+  margin-left: -200rpx;
+}
+
+
+.apply .group .view_box{
+  width: 116rpx;
+  height: 116rpx;
+  border: 1px solid #CCCCCC;
+  display: inline-block;
+  margin-right: 24rpx;
+  margin-top: 16rpx;
+  box-sizing: border-box;
+  float: left;
+}
+
+.apply .group .view_box:last-child{
+  margin-right: 0;
+}
+
+
+.apply .group .view_box image{
+  width: 116rpx;
+  height: 116rpx;
+}
+.apply .group .view_box .upload{
+  width: 116rpx;
+  height: 116rpx;
+}
+.apply .group .view_box .upload image{
+  width: 56rpx;
+  height: 56rpx;
+  margin: 30rpx 0 0 30rpx;
+}
+
+
+.apply .group.submit{
+  margin-top: 85rpx;
+}
+
+
+.apply .success{
+  margin-top: 200rpx;
+  text-align: center;
+}
+
+.apply .success .info{
+  font-size: 40rpx;
+  color: #000000;
+  margin-top: 47rpx;
+}
+
+.apply .success .summary{
+  font-size: 28rpx;
+  color: #888888;
+  margin-top: 30rpx;
+}
+
+

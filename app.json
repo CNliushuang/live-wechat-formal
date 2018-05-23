@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/my/my",
+    "pages/account/account",
+    "pages/cash/cash",
+    "pages/bind/bind",
+    "pages/index/index",
+    "pages/apply/apply",
+    "pages/logs/logs",
+    "pages/auth/auth",
+    "pages/help/help",
+    "pages/info/info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "艺人管理系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7F8389",
+    "selectedColor": "#DB3069",
+    "borderStyle": "black",
+    "backgroundColor": "#F7F7FA",
+    "list": [
+      {
+        "pagePath": "pages/info/info",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_hover.png",
+        "text": "我"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/cash.png",
+        "selectedIconPath": "images/cash_hover.png",
+        "text": "提现"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "iconPath": "images/list.png",
+        "selectedIconPath": "images/list_hover.png",
+        "text": "账单"
+      }
+    ]
+  }
+}

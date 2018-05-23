@@ -1,0 +1,36 @@
+/* pages/components/footer/footer.wxss */
+
+.footer {
+  width: 100%;
+  height: 98rpx;
+  background: #f7f7fa;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer .items {
+  flex: 1;
+}
+
+.footer .items .icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+}
+
+.footer .items .icon image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.footer .items .name {
+  font-size: 20rpx;
+  color: #7f8389;
+  text-align: center;
+  margin-top: 8rpx;
+}
+
+.footer .items.active .name{
+  color: #db3069;
+}

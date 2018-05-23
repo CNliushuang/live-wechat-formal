@@ -1,0 +1,32 @@
+<!--pages/components/upload/upload.wxml-->
+<wxs src="../../../utils/util.wxs" module="util" />
+<view class="files_box">
+  <view wx:for="{{files}}" wx:key="uuid" class="files">
+    <view class="left_files">
+      <image src="{{item.url}}"></image>
+    </view>
+    <view class="right_files">
+      <view class="name">
+        {{util.filterFilesName(item.name,item.expand,'long')}}
+        <text class="size">{{util.changeFileSize(item.size)}}</text>
+      </view>
+      <view class="result">
+        <block wx:if="item.uuid"><text class="success">上传成功</text></block>
+        <block wx:else><text>上传中...</text></block>
+      </view>
+      <view class="delete" data-index="{{index}}" bindtap="deleteFiles"><image src="images/delete.png"></image></view>
+    </view>
+  </view>
+</view>
+<view class="submit_box">
+  <view class="submit" bindtap="submit">保存</view>
+  <view class="submit upload" bindtap="goUpload">继续上传</view>
+</view>
+
+
+
+
+
+
+
+

@@ -1,0 +1,116 @@
+/* pages/my/my.wxss */
+.my_wrapper{
+  width: 100%;
+  height: 100%;
+}
+.my_wrapper .user{
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 30rpx;
+  padding-top: 20rpx;
+}
+.my_wrapper .user .icon{
+  float: left;
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 100%;
+  background: pink;
+  margin: 0 auto;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  box-shadow: 0 9px 17px 0 rgba(0,0,0,0.20);
+}
+.my_wrapper .user .icon image{
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 100%;
+}
+
+
+.my_wrapper .user .content{
+  margin-left: 202rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.my_wrapper .user .content view{
+  margin-top: 6rpx;
+}
+.my_wrapper .user .content .nick_name{
+  font-size: 32rpx;
+  color: #000000;
+}
+
+.my_wrapper .user_data{
+  border-bottom: 1px solid #E5E5E5;
+  padding: 20rpx 33rpx 0 33rpx; 
+}
+.my_wrapper .user_data .items{
+  width: 33%;
+  float: left;
+  margin-bottom: 23rpx;
+}
+
+.my_wrapper .user_data .items .name{
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+
+.my_wrapper .user_data .items .num{
+  font-size: 36rpx;
+  color: #DB3069;
+  margin-top: 4rpx;
+}
+
+
+
+.my_wrapper .user_info{
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+} 
+.my_wrapper .user_info .group{
+  margin-top: 20rpx;
+}
+.my_wrapper .user_info .group .title{
+  font-size: 28rpx;
+  color: #000;
+}
+.my_wrapper .user_info .group .wrapper{
+  padding: 20rpx;
+}
+.my_wrapper .user_info .group .wrapper .items{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+
+.my_wrapper .user_info .group .wrapper .items .name{
+  width: 100rpx;
+  float: left;
+}
+
+.my_wrapper .user_info .group .wrapper .items .content{
+  margin-left: 110rpx;
+}
+
+.my_wrapper .user_info .group .wrapper .part .part_content{
+  padding-left: 20rpx;
+}
+
+
+.my_wrapper .user_info .group.payFloor .wrapper .items .name{
+  width: 145rpx;
+  float: left;
+}
+
+.my_wrapper .user_info .group.payFloor .wrapper .items .content{
+  margin-left: 155rpx;
+}
+
+
+
+
+.my_wrapper .btn{
+  margin-top: 20rpx;
+}
+

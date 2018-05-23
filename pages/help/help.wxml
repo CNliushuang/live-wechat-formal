@@ -1,0 +1,16 @@
+<!--pages/help/help.wxml-->
+
+<view class="help">
+	<view class="items">
+		<view class="name">客服QQ</view>
+		<view class="content">{{kf.qq || ''}}</view>
+	</view>
+	<view class="items">
+		<view class="name">客服电话</view>
+		<view class="content">{{kf.mobile || ''}}</view>
+	</view>
+	<view class="items">
+		<view class="name">客服微信</view>
+		<view class="content">{{kf.wechat || ''}}</view>
+	</view>
+</view>

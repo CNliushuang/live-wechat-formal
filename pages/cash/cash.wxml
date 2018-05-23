@@ -1,0 +1,19 @@
+<!--pages/cash/cash.wxml-->
+<view class='cash_wrapper'>
+  <view class='cash_container'>
+    <!-- <view class='info info_money'>今日可提现金额 9900元</view> -->
+    <view class='input_box'>
+      <input bindinput='changeMoney' type="number" placeholder="请输入提现金额" auto-focus/>
+    </view>
+<!--     <view class='info info_identify'>提现时需要验证身份信息</view>
+    <view class='input_box'>
+      <input bindinput='changeName' type="text" placeholder="请输入你的真实姓名" auto-focus/>
+    </view>
+    <view class='input_box'>
+      <input bindinput='changeIdentify' type="text" placeholder="请输入你的身份号码" auto-focus/>
+    </view> -->
+  </view>
+  <view class='cash_btn'>
+    <v-button bindtap='goCash'>确定</v-button>
+  </view>
+</view>

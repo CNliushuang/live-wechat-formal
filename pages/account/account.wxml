@@ -1,0 +1,132 @@
+<!--pages/account/account.wxml-->
+<wxs src="../../utils/util.wxs" module="util" />
+
+<view class='account_wrapper'>
+
+  <view class='date_picker'>
+    <view class="section">
+      <picker mode="date" value="{{start}}"  bindchange="bindChangeStart">
+        <view class="picker">
+          <text>开始时间:</text>{{start}}
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <picker mode="date" value="{{end}}"  bindchange="bindChangeEnd">
+        <view class="picker">
+          <text>结束时间:</text> {{end}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='tabs'>
+    <view bindtap="switchTab" data-tab="cash" class='cash items {{tab == "cash"?"active":""}}'>
+      提现记录<view class='line'></view>
+    </view>
+    <view bindtap="switchTab" data-tab="account" class='account items {{tab == "account"?"active":""}}'>
+      入账记录<view class='line'></view>
+    </view>
+    <view bindtap="switchTab" data-tab="time" class='time items {{tab == "time"?"active":""}}'>
+      直播时长<view class='line'></view>
+    </view>
+  </view>
+  
+  <view class='list_container'>
+  
+
+    <scroll-view scroll-y style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower">
+      <!--cash start-->
+      <block wx:if="{{tab == 'cash'}}">
+        <view wx:for="{{cash_list}}" wx:key="uuid" class='items'>
+          <view class='top'>
+            <text>{{util.timesToDate(item.lastUpdate,'yyyy-MM-dd HH:mm')}}</text>
+            账单号：{{item.trackNum}}
+          </view>
+          <view class='info clearfix'>
+            <view class='item'>
+              <view class='name'>提现类型</view>
+              <view class='content'>{{item.cashAccountType == 0?"微信小程序":"支付宝"}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>提现账户</view>
+              <view class='content'>{{item.cashAccountName}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>提现金额</view>
+              <view class='content'>{{item.money}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>提现进度</view>
+              <view class='content'>{{util.cashFilter(item.status)}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>备注</view>
+              <view class='content'>无</view>
+            </view>
+          </view>
+        </view>
+        </block>
+      <!--cash end-->
+      <!--account start-->
+      <block wx:if="{{tab == 'account'}}">
+        <view wx:for="{{account_list}}" wx:key="uuid" class='items account'>
+          <view class='top'>
+            <text>{{util.timesToDate(item.lastUpdate,'yyyy-MM-dd HH:mm')}}</text>
+            账单号：{{item.trackNum}}
+          </view>
+          <view class='info clearfix'>
+            <view class='item'>
+              <view class='name'>入账类型</view>
+              <view class='content'>{{item.type == 0?"收入":"提现"}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>薪资日期</view>
+              <view class='content'>{{util.timesToDate(item.createDate,'yyyy-MM-dd')}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>入账金额</view>
+              <view class='content'>{{item.moneyNum}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>备注</view>
+              <view class='content'>无</view>
+            </view>
+          </view>
+        </view>
+        </block>
+
+        <block wx:if="{{tab == 'time'}}">
+        <view wx:for="{{time_list}}" wx:key="uuid" class='items account'>
+          <view class='top'>
+            <text>直播时间：{{util.timesToDate(item.day,'yyyy-MM-dd')}}</text>
+          </view>
+          <view class='info clearfix'>
+            <view class='item'>
+              <view class='name'>直播时长</view>
+              <view class='content'>{{item.showHour}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>今日粉丝量</view>
+              <view class='content'>{{item.todayFansCount}}</view>
+            </view>
+            <view class='item'>
+              <view class='name'>昨日粉丝量</view>
+              <view class='content'>{{item.yesterdayFansCount}}</view>
+            </view>
+            
+
+
+          </view>
+        </view>
+        </block>
+
+      <!--account end-->
+    </scroll-view>
+  </view>
+
+
+
+
+
+</view>

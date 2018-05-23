@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "v-footer": "/pages/components/footer/footer",
+    "v-button": "/pages/components/button/button",
+    "v-checkbox": "/pages/components/checkbox/checkbox"
+  }
+}

@@ -1,0 +1,25 @@
+<!--pages/components/footer/footer.wxml-->
+<view class='footer'>
+  <view bindtap="swicthMy" class='tab_my items {{tab == "my"?"active":""}}'>
+    <view class='icon'>
+      <block wx:if="{{tab == 'my'}}">
+        <image src='../../../images/my_hover.png'></image>
+      </block>
+      <block wx:else>
+        <image src='../../../images/my.png'></image>
+      </block>
+    </view>
+    <view class='name'>我</view>
+  </view>
+  <view bindtap="switchAccount" class='tab_account items {{tab == "account"?"active":""}}'>
+    <view class='icon'>
+      <block wx:if="{{tab == 'account'}}">
+        <image src='../../../images/list_hover.png'></image>
+      </block>
+      <block wx:else>
+        <image src='../../../images/list.png'></image>
+      </block>
+    </view>
+    <view class='name'>账单</view>
+  </view>
+</view>

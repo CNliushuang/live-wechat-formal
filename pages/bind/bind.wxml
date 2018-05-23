@@ -1,0 +1,81 @@
+<!--pages/bind/bind.wxml-->
+<view class='bind_wrapper'>
+  <block wx:if="{{cashType == 'HANDLE'}}">
+    <view class='bind_container bind_flex_container'>
+      <view class='info info_money'>绑定支付宝账号成为你的大额提现账户</view>
+      <view class='input_box'>
+        <input bindinput='changeNum' data-type="HANDLE" type="number" placeholder="请输入你的支付宝账号" auto-focus/>
+      </view>
+      <view class='input_box'>
+        <input bindinput='changeName' data-type="HANDLE" type="text" placeholder="请输入你的真实姓名" auto-focus/>
+      </view>
+    </view>
+    <view class='cash_btn'>
+      <view class='btn_info'>绑定支付宝账号成为你的大额提现账户</view>
+      <v-button bindtap='goBindHandle'>绑定</v-button>
+    </view>
+  </block>
+  <block wx:if="{{cashType == 'AUTO'}}">
+    <view class='bind_container bind_flex_container'>
+      <view class='info info_money'>绑定微信账号成为你的小额提现账户</view>
+      <view class='input_box'>
+        <input bindinput='changeName' data-type="AUTO" type="text" placeholder="请输入你的真实姓名" auto-focus/>
+      </view>
+    </view>
+    <view class='cash_btn'>
+      <view class='btn_info'>绑定微信账号成为你的小额提现账户</view>
+      <v-button bindtap='goBindAuto'>绑定</v-button>
+    </view>
+  </block>
+
+
+  <block wx:if="{{cashType == 'BANK'}}">
+    <view class='bind_flex_container'>
+      <view class='bind_container'>
+        <view class='info info_money'>绑定提现账户前需要验证您的身份信息</view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.accountName}}" data-type="accountName" type="text" placeholder="请输入你的真实姓名" auto-focus/>
+        </view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.identityCardId}}" data-type="identityCardId" type="text" placeholder="请输入你的身份证号" auto-focus/>
+        </view>
+      </view>
+      <view class='bind_container'>
+        <view class='info info_money'>绑定银行卡作为大额提现账户</view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.bcName}}" data-type="bcName" type="text" placeholder="开户银行" auto-focus/>
+        </view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.bcCity}}" data-type="bcCity" type="text" placeholder="开户银行所在城市" auto-focus/>
+        </view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.bcBranch}}" data-type="bcBranch" type="text" placeholder="开户支行" auto-focus/>
+        </view>
+        <view class='input_box'>
+          <input bindinput='changeBank' disabled="{{opt?true:false}}" value="{{bank.accountNum}}" data-type="accountNum" type="text" placeholder="银行卡号" auto-focus/>
+        </view>
+
+      </view>
+    </view>
+    <view wx:if="{{!opt}}" class='cash_btn'>
+      <view class='btn_info'>认证成功后将无法修改</view>
+      <v-button bindtap='goBindBank'>认证</v-button>
+    </view>
+    <view wx:else class='cash_btn' bindtap="viewHelp">
+      <view class='btn_info'>如需修改信息请联系公会或联系客服</view>
+    </view>
+  </block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

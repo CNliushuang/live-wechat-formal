@@ -1,0 +1,111 @@
+/* pages/account/account.wxss */
+.account_wrapper{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding:0 23rpx;
+}
+.account_wrapper .tabs{
+  height: 80rpx;
+  flex-shrink: 0;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 30rpx;
+  color: #9B9B9B;
+  text-align: center;
+}
+.account_wrapper .tabs .items{
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  position: relative;
+}
+.account_wrapper .tabs .items .line{
+  width: 40rpx;
+  height: 4rpx;
+  background: #ffffff;
+  position: absolute;
+  left: 50%;
+  bottom: 14rpx;
+  margin-left: -20rpx;
+}
+
+.account_wrapper .tabs .items.active{
+  color: #DB3069;
+}
+
+.account_wrapper .tabs .items.active .line{
+  background: #DB3069;
+}
+
+.account_wrapper .date_picker{
+  height: 40rpx;
+  padding: 6rpx 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.account_wrapper .date_picker .section{
+  height: 40rpx;
+  line-height: 52rpx;
+  flex: 1;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.account_wrapper .date_picker .section text{
+  font-weight: bold;
+}
+
+.account_wrapper .date_picker .section .picker{
+  background: #f4f4f4;
+  padding-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+
+.account_wrapper .list_container{
+  flex-grow: 1;
+  height: 0;
+}
+
+.account_wrapper .list_container .items{
+  font-size: 24rpx;
+  color: #9B9B9B;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.account_wrapper .list_container .items .top text{
+  margin-right: 43rpx;
+}
+.account_wrapper .list_container .items .info{
+  
+}
+.account_wrapper .list_container .items .info .item{
+  width: 20%;
+  float: left;
+}
+
+.account_wrapper .list_container .items.account .info .item{
+  width: 25%;
+  float: left;
+}
+
+.account_wrapper .list_container .items .info .item .name{
+  margin-top: 17rpx;
+}
+.account_wrapper .list_container .items .info .item .content{
+  margin-top: 17rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+
+
+

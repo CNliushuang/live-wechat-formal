@@ -1,0 +1,149 @@
+<!--pages/my/my.wxml-->
+<view class='my_wrapper'>
+  <!--user info start-->
+  <view class='user'>
+    <view class='icon'>
+    <block wx:if="{{userInfo}}">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </block>
+    </view>
+    <view class='content'>
+      <view class='nick_name'>{{userInfo.nickName}}</view>
+      <view class='plat_nick_name'>
+        {{user.platName}} 昵称：{{user.nickname}}
+      </view>
+      <view class='plat_id'>
+        平台用户ID:{{user.thirdId}}
+      </view>
+      <view class='other_info'>
+        公会：{{user.unionName}} 
+          <!-- 经纪人：SniperHunter -->
+      </view>
+    </view>
+  </view>
+  <!--user info end-->
+  <view class="user_info">
+    <view class="group">
+      <view class="title">
+        身份信息
+      </view>
+      <view class="wrapper clearfix">
+        <view class="items clearfix">
+          <view class="name">姓名</view>
+          <view class="content">
+            {{user.identityName && user.identityName || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">身份证</view>
+          <view class="content">
+            {{user.identityCardId && user.identityCardId || ''}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="group">
+      <view class="title">
+        联系方式
+      </view>
+      <view class="wrapper clearfix">
+        <view class="items clearfix">
+          <view class="name">电话</view>
+          <view class="content">
+            {{user.mobile && user.mobile || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">QQ号</view>
+          <view class="content">
+            {{user.qqId && user.qqId || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">微信号</view>
+          <view class="content">
+            {{user.wechatId && user.wechatId || ''}}
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="group">
+      <view class="title">
+        分成计算
+      </view>
+      <view class="wrapper clearfix">
+        <view class="items clearfix">
+          <view class="name">计算方法</view>
+          <view class="content">
+            {{user.shareType == 0?'固定比例':'阶梯比例'}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">个税</view>
+          <view class="content">
+            {{user.taxRatio && user.taxRatio || ''}}
+          </view>
+        </view>
+        <block wx:if="{{user.shareType == 0}}">
+          <view class="items">
+            <view class="name">分成比例</view>
+            <view class="content">
+              {{user.shareRatio && user.shareRatio || ''}}
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="part" wx:for="{{user.shareProperties}}" wx:key="uuid">
+            <view class="part_title">第{{index+1}}阶梯</view>
+            <view class="part_content">
+              {{item.shareRatio}}%分成比例，低于{{item.maxLimit}}元
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+
+    <view class="group payFloor">
+      <view class="title">
+        保底政策
+      </view>
+      <view class="wrapper clearfix">
+        <view class="items clearfix">
+          <view class="name">保底薪资</view>
+          <view class="content">
+            {{user.payFloor && user.payFloor || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">月有效天数</view>
+          <view class="content">
+            {{user.validDay && user.validDay || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">日有效小时</view>
+          <view class="content">
+            {{user.validDayHour && user.validDayHour || ''}}
+          </view>
+        </view>
+        <view class="items">
+          <view class="name">月有效总时长</view>
+          <view class="content">
+            {{user.validHour && user.validHour || ''}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="btn">
+      <v-button bindtap='goSignOut'>退出登录</v-button>
+    </view>
+
+
+  </view>
+
+</view>

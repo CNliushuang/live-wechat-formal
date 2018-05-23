@@ -1,0 +1,141 @@
+<!--pages/my/my.wxml-->
+<view class='my_wrapper'>
+  <!--user info start-->
+  <view class='user'>
+    <view class='icon'>
+    <block wx:if="{{userInfo}}">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </block>
+    </view>
+    <view class='content'>
+      <view class='nick_name'>{{userInfo.nickName}}</view>
+      <view class='plat_nick_name'>
+        {{user.platName}} 昵称：{{user.nickname}}
+      </view>
+      <view class='plat_id'>
+        平台用户ID:{{user.thirdId}}
+      </view>
+      <view class='other_info'>
+        公会：{{user.unionName}} 
+          <!-- 经纪人：SniperHunter -->
+      </view>
+    </view>
+  </view>
+  <!--user info end-->
+  <!--user data start-->
+  <view class='user_data clearfix'>
+    <view class='items'>
+      <view class='name'>账户余额</view>
+      <view class='num'>{{analyze && analyze.accountMoney || 0}}</view>
+    </view>
+    <view class='items'>
+      <view class='name'>今日已提现金额</view>
+      <view class='num'>{{analyze && analyze.todayCashMoney || 0}}</view>
+    </view>
+    <view class='items'>
+      <view class='name'>今日小额可提现金额</view>
+      <view class='num'>{{analyze && analyze.todayValidMoney || 0}}</view>
+    </view>
+    <view class='items'>
+      <view class='name'>{{month}}直播时间</view>
+      <view class='num'>{{analyze && analyze.curMonthShowHour || 0}}</view>
+    </view>
+    <view class='items'>
+      <view class='name'>{{month}}直播有效天</view>
+      <view class='num'>{{analyze && analyze.curMonthShowValidDay || 0}}</view>
+    </view>
+  </view>
+  <!--user data end-->
+  <!--bind account start-->
+  <view class='bind_account'>
+    <!-- 
+    <view class='items clearfix'>
+      <view class='name'>小额提现账户</view>
+      <view class='content'>
+        <block wx:if="{{autoAccount}}">
+          微信零钱-{{autoAccount.accountNickname}}
+        </block>
+        <block wx:else>
+          未设置
+        </block>
+        <block wx:if="{{autoAccount}}">
+          <view data-uuid="{{autoAccount.uuid}}" bindtap='deleteBind' class='go_bind'>删除</view>
+        </block>
+        <block wx:else>
+          <view data-type="AUTO" bindtap='goBind' class='go_bind'>去绑定</view>
+        </block>        
+      </view>
+    </view>
+    <view class='items clearfix'>
+      <view class='name'>大额提现账户</view>
+      <view class='content'>
+        <block wx:if="{{handleAccount}}">
+          支付宝-{{handleAccount.accountNickname}}
+        </block>
+        <block wx:else>
+          未设置
+        </block>
+        <block wx:if="{{handleAccount}}">
+          <view data-uuid="{{handleAccount.uuid}}" bindtap='deleteBind' class='go_bind'>删除</view>
+        </block>
+        <block wx:else>
+          <view data-type="HANDLE" bindtap='goBind' class='go_bind'>去绑定</view>
+        </block>
+      </view>
+    </view> -->
+
+    <view class='items clearfix'>
+      <view class='name'>身份认证</view>
+      <view class='content'>
+        <block wx:if="{{bankAccount}}">
+          已认证{{bankAccount.accountNickname}}
+        </block>
+        <block wx:else>
+          未认证
+        </block>
+        <block wx:if="{{bankAccount}}">
+          <view data-uuid="{{handleAccount.uuid}}" bindtap='viewBindBank' class='go_bind'>查看</view>
+        </block>
+        <block wx:else>
+          <view data-type="BANK" bindtap='goBind' class='go_bind'>去认证</view>
+        </block>
+      </view>
+    </view>
+
+
+
+
+
+
+  </view>
+  <view class='operate'>
+    <!-- <view class='help'>{{plat.autoTimeMax}}元以内使用小额提现，快速到账</view> -->
+<!--     <view class='items'>
+      <v-button bindtap='goAutoCash' disabled="{{!agree}}">小额提现</v-button>
+    </view>
+    <view class='items'>
+      <v-button bindtap='goHandleCash' disabled="{{!agree}}" cycle="true">大额提现</v-button>
+    </view>
+ -->
+
+    <view class='items'>
+      <v-button bindtap='goBankCash' disabled="{{!agree}}">提现</v-button>
+    </view>
+
+    <view class='protocol' bindtap='agreeProtocol'>
+      <view class='protocol_box'>
+        <v-checkbox  checked="{{agree}}"></v-checkbox>
+        我已阅读并同意<text>《用户提现协议》</text>
+      </view>
+    </view>
+    <view class='protocol help' bindtap="viewHelp">
+      <view class='protocol_box'>
+        遇到问题？<text>联系客服</text>
+      </view>
+    </view>
+
+  </view>
+  <!--bind account end-->
+
+
+</view>

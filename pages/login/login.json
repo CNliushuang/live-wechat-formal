@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "v-button": "/pages/components/button/button"
+  }
+}
