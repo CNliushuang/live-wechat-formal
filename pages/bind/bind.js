@@ -234,7 +234,7 @@ Page({
 
 
     let accountName = this.data.bank.accountName;
-    let cashType = 'AUTO';
+    let cashType = 'HANDLE';
     let accountType = this.filterCashType(this.data.cashType);
 
 

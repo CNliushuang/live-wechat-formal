@@ -33,7 +33,7 @@
       <view class='num'>{{analyze && analyze.todayCashMoney || 0}}</view>
     </view>
     <view class='items'>
-      <view class='name'>今日小额可提现金额</view>
+      <view class='name'>今日可提现金额</view>
       <view class='num'>{{analyze && analyze.todayValidMoney || 0}}</view>
     </view>
     <view class='items'>

@@ -242,6 +242,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (app.globalData.user){
+      this.setData({
+        user:app.globalData.user
+      })
+    }
+
+    if (app.globalData.userInfo){
+      this.setData({
+        userInfo:app.globalData.userInfo
+      })
+    }
+
+    if (app.globalData.plat) {
+      this.setData({
+        plat: app.globalData.plat
+      })
+    }
     this.getCashAccount();
     this.getAnalyze();
     

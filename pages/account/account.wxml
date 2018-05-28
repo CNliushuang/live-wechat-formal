@@ -46,7 +46,17 @@
           <view class='info clearfix'>
             <view class='item'>
               <view class='name'>提现类型</view>
-              <view class='content'>{{item.cashAccountType == 0?"微信小程序":"支付宝"}}</view>
+              <view class='content'>
+                <block wx:if="{{item.cashAccountType == 0}}">
+                  微信
+                </block>
+                <block wx:if="{{item.cashAccountType == 1}}">
+                  支付宝
+                </block>
+                <block wx:if="{{item.cashAccountType == 2}}">
+                  银行转账
+                </block>
+              </view>
             </view>
             <view class='item'>
               <view class='name'>提现账户</view>
@@ -72,7 +82,7 @@
       <block wx:if="{{tab == 'account'}}">
         <view wx:for="{{account_list}}" wx:key="uuid" class='items account'>
           <view class='top'>
-            <text>{{util.timesToDate(item.lastUpdate,'yyyy-MM-dd HH:mm')}}</text>
+            <text>{{util.timesToDate(item.day,'yyyy-MM-dd HH:mm')}}</text>
             账单号：{{item.trackNum}}
           </view>
           <view class='info clearfix'>

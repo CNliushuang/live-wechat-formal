@@ -12,7 +12,8 @@ Page({
     money:0,
     cashAccountName:"",
     identify:"",
-    account:null
+    account:null,
+    locked:false
   },
   goCash(){
 
@@ -50,24 +51,58 @@ Page({
     let money = this.data.money;
     let content = "";
 
-    store.newCach({ identityName, identityCardId, cashAccountId, money, content},(resp) => {
-      wx.showToast({
-        title: "申请提现成功",
-        icon: 'success',
-        duration: 2000
+    if(!this.data.locked){
+      this.setData({
+        locked:true
+      })
+      setTimeout(() => {
+        this.setData({
+          locked:false
+        })
+      },5000)
+
+
+      store.newCach({ identityName, identityCardId, cashAccountId, money, content},(resp) => {
+        wx.showToast({
+          title: "申请提现成功",
+          icon: 'success',
+          duration: 2000
+        })
+
+         this.setData({
+          locked:false
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+
+      },(resp) => {
+        wx.showToast({
+          title: resp.msg,
+          icon: 'none',
+          duration: 2000
+        })
+
+         this.setData({
+          locked:false
+        })
+
+
+        
       })
 
-      wx.navigateBack({
-        delta: 1
-      })
 
-    },(resp) => {
-      wx.showToast({
-        title: resp.msg,
-        icon: 'none',
-        duration: 2000
-      })
-    })
+
+
+
+
+
+
+    }
+
+
+
+    
 
 
 

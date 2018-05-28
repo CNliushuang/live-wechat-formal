@@ -14,6 +14,7 @@ export const store = {
       accountType,
       accountName,
       accountNum,
+      cashType
     };
 
     if(accountType == 2){//绑定银行卡

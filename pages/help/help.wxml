@@ -13,4 +13,7 @@
 		<view class="name">客服微信</view>
 		<view class="content">{{kf.wechat || ''}}</view>
 	</view>
+	<view class="items">
+		<button open-type='contact'>联系客服</button>
+	</view>
 </view>
