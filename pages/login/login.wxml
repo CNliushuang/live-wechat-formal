@@ -51,7 +51,7 @@
           {{item.name}}
         </view>
         <view bindtap='goApply' class='btn'>
-          <v-button>申请成为主播</v-button>
+          <v-button>申请合作</v-button>
         </view>
       </block>
 

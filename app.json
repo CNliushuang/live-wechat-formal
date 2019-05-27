@@ -15,7 +15,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "艺人管理系统",
+    "navigationBarTitleText": "易趣小助手",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

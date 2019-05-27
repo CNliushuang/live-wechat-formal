@@ -4,7 +4,7 @@
   <view class='group'>
     <view class='title'>姓名</view>
     <view class='input_box'>
-      <input bindinput='changeInfo' data-type="identityName" type="text" placeholder="请输入你的真实姓名" auto-focus/>
+      <input bindinput='changeInfo' data-type="identityName" type="text" placeholder="联系人姓名" auto-focus/>
     </view>
   </view>
   <view class='group'>
@@ -20,11 +20,11 @@
   <view class='group'>
     <view class='title'>你是怎么了解到我们的？</view>
     <view class='input_box'>
-      <input bindinput='changeInfo' data-type="summary" type="text" placeholder="请填写你了解到我们的方式"/>
+      <input bindinput='changeInfo' data-type="summary" type="text" placeholder="公会/挂靠/经纪人/主播"/>
     </view>
   </view>
   <view class='group images'>
-    <view class='title'>请上传3张近照</view>
+    <view class='title'>营业执照/挂靠流水图/近照（根据角色）</view>
     <view class='images_wrapper'>
       <view class='view_box' data-num="1" bindtap='goUpload'>
         <block wx:if="{{img_1 && img_1.url}}">
